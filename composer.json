@@ -1,0 +1,26 @@
+{
+    "name": "foreverglory/doctrine-manager",
+    "type": "library",
+    "description": "doctrine manager",
+    "keywords": ["library", "doctrine"],
+    "homepage": "http://foreverglory.me",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ForeverGlory",
+            "email": "foreverglory@qq.com",
+            "homepage": "http://foreverglory.me"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Glory\\DoctrineManager\\": ""
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "symfony/property-access": "~2.3|~3.0"
+    },
+    "require-dev": {
+    }
+}
