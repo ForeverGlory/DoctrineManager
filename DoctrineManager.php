@@ -50,9 +50,7 @@ class DoctrineManager
     public function __call($method, $arguments)
     {
         $repository = $this->getRepository();
-        if (method_exists($repository, $method)) {
-            return call_user_func_array(array($repository, $method), $arguments);
-        }
+        return call_user_func_array(array($repository, $method), $arguments);
     }
 
     public function setClass($class)
@@ -65,6 +63,26 @@ class DoctrineManager
         return $this->class;
     }
 
+    public function find($id)
+    {
+        return $this->getRepository()->find($id);
+    }
+
+    public function findAll()
+    {
+        $this->getRepository()->findAll();
+    }
+
+    public function findOneBy($criteria)
+    {
+        return $this->getRepository()->findOneBy($criteria);
+    }
+
+    public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+    {
+        return $this->getRepository()->findBy($criteria, $orderBy, $limit, $offset);
+    }
+
     public function findOrException($id, $exception)
     {
         $object = $this->find($id);
@@ -75,7 +93,8 @@ class DoctrineManager
 
     public function create(array $properties = [])
     {
-        $class = new $this->getClass();
+        $className = $this->getClass();
+        $class = new $className();
         $accessor = PropertyAccess::createPropertyAccessor();
         foreach ($properties as $key => $value) {
             $accessor->setValue($class, $key, $value);
