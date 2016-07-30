@@ -23,7 +23,7 @@ add ClassName
 
 ```php
 //src:DependencyInjection/AppExtension.php
-namespace AppBundle\PayBundle\DependencyInjection;
+namespace AppBundle\DependencyInjection;
 
 class AppExtension extends Extension
 {
@@ -35,7 +35,7 @@ class AppExtension extends Extension
 
         //通过配置参数，设置manager的class
         $container->getDefinition('doctrine.manager.example')
-                ->addMethodCall('setPayClass', [$config['app_class']]);
+                ->addMethodCall('setClass', [$config['app_class']]);
 
     }
 }
