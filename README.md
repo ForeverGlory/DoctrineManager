@@ -40,3 +40,16 @@ class AppExtension extends Extension
     }
 }
 ```
+
+black code
+```php
+$this->get('doctrine.manager.example')->find($id);
+$this->get('doctrine.manager.example')->findAll();
+$this->get('doctrine.manager.example')->findOneBy($criteria);
+$this->get('doctrine.manager.example')->findBy($criteria);
+$this->get('doctrine.manager.example')->create($properties);
+$this->get('doctrine.manager.example')->update($properties);
+$this->get('doctrine.manager.example')->delete($properties);
+$this->get('doctrine.manager.example')->getManager();
+$this->get('doctrine.manager.example')->getRepository();
+```
